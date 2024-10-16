@@ -5,8 +5,13 @@
 
 	let { children }: Root = $props();
 
-	let { getFrontmatter, getTitle } = getAstContext();
-	let { title = getTitle() } = getFrontmatter();
+	let { getFrontmatter, getTitle } = $derived.by(() => getAstContext());
+
+	let { title = 'Untitled' } = $derived.by(() => {
+		const { title = getTitle() } = getFrontmatter<{ title: string }>();
+
+		return { title };
+	});
 </script>
 
 <svelte:head>
