@@ -7,6 +7,4 @@
 	let { ast } = $derived(data);
 </script>
 
-<article class="prose prose-lg max-w-prose mx-auto prose-slate dark:prose-invert">
-	<Ast {ast} />
-</article>
+<Ast {ast} />
