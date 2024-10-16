@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+:root {
+	font-family: Inter, sans-serif;
+	font-feature-settings:
+		'liga' 1,
+		'calt' 1,
+		'cv11' 1,
+		'ss01' 1,
+		'ss02' 1;
+}
+@supports (font-variation-settings: normal) {
+	:root {
+		font-family: InterVariable, sans-serif;
+	}
+}
+
+html,
+body {
+	@apply bg-white dark:bg-slate-900;
+}
