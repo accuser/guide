@@ -7,11 +7,10 @@ settings:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       '@sveltejs/adapter-static':
         specifier: ^3.0.5
         version: 3.0.5(@sveltejs/kit@2.7.1(@sveltejs/vite-plugin-svelte@4.0.0-next.8(svelte@5.0.0-next.265)(vite@5.4.9(@types/node@22.7.5)))(svelte@5.0.0-next.265)(vite@5.4.9(@types/node@22.7.5)))
-    devDependencies:
       '@sveltejs/kit':
         specifier: ^2.0.0
         version: 2.7.1(@sveltejs/vite-plugin-svelte@4.0.0-next.8(svelte@5.0.0-next.265)(vite@5.4.9(@types/node@22.7.5)))(svelte@5.0.0-next.265)(vite@5.4.9(@types/node@22.7.5))
