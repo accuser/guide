@@ -5,8 +5,7 @@
 
 	let { children }: Root = $props();
 
-	const { getFrontmatter, getTitle } = getAstContext();
-
+	let { getFrontmatter, getTitle } = getAstContext();
 	let { title = getTitle() } = getFrontmatter();
 </script>
 
