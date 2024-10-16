@@ -21,3 +21,11 @@ html,
 body {
 	@apply bg-white dark:bg-slate-900;
 }
+
+article {
+	@apply prose prose-lg max-w-prose mx-auto prose-slate dark:prose-invert;
+}
+
+kbd {
+	@apply font-mono text-sm px-1.5 py-1 bg-slate-100 rounded shadow border border-slate-300 uppercase;
+}
