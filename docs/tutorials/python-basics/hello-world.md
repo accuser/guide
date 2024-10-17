@@ -1,10 +1,9 @@
 ---
-title: "Creating your first Python program: Hello, World!"
-lede: "Learn how to write and run a simple Python program that displays a message on your screen."
+title: 'Creating your first Python program: Hello, World!'
+lede: 'Learn how to write and run a simple Python program that displays a message on your screen.'
 ---
 
 Welcome to your first step in learning Python! In this tutorial, we'll guide you through creating a simple program that displays the message "Hello, World!" on your screen. This is a common starting point for learning any programming language.
-
 
 ## What you'll learn
 
@@ -19,11 +18,13 @@ Welcome to your first step in learning Python! In this tutorial, we'll guide you
 ## Open Python's interactive shell
 
 1. On Windows:
+
    - Click the Start menu
    - Type "Python" in the search bar
    - Click on "Python (Python 3.x)"
 
    On Mac or Linux:
+
    - Open the Terminal application
    - Type `python3` and press Enter
 
@@ -67,11 +68,13 @@ Let's break down what we did:
 Now that you've got the hang of it, try these:
 
 1. Print your name:
+
    ```python
    print("Hello, <your name>!")
    ```
 
 2. Print multiple lines:
+
    ```python
    print("Line 1")
    print("Line 2")
