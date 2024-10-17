@@ -2,7 +2,7 @@ import { isHeading } from '$lib/type-guards/mdast';
 import { slug } from 'github-slugger';
 import type { Heading, List, Root } from 'mdast';
 import { toString } from 'mdast-util-to-string';
-import { collect } from './collect';
+import { collect } from './collect.js';
 
 export type Depth = Heading['depth'];
 

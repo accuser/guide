@@ -1,4 +1,4 @@
-import { isDefinition } from '$lib/type-guards/mdast';
+import { isDefinition } from '$lib/type-guards/mdast.js';
 import type { Root } from 'mdast';
 import { collect } from './collect';
 

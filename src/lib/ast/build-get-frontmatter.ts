@@ -1,4 +1,4 @@
-import { isRoot, isYaml } from '$lib/type-guards/mdast';
+import { isRoot, isYaml } from '$lib/type-guards/mdast.js';
 import type { Root } from 'mdast';
 import { parse } from 'yaml';
 
