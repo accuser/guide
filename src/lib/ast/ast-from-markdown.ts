@@ -7,6 +7,7 @@ import { directive } from 'micromark-extension-directive';
 import { frontmatter } from 'micromark-extension-frontmatter';
 import { gfm } from 'micromark-extension-gfm';
 import { math } from 'micromark-extension-math';
+import imputeHeadingId from './impute-heading-id';
 
 const astFromMarkdown = (src: string) =>
 	fromMarkdown(src, {
@@ -15,6 +16,7 @@ const astFromMarkdown = (src: string) =>
 			directiveFromMarkdown(),
 			frontmatterFromMarkdown(),
 			gfmFromMarkdown(),
+			imputeHeadingId(),
 			mathFromMarkdown()
 		]
 	});
