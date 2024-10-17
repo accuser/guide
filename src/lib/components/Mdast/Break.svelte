@@ -1,7 +1,9 @@
 <script lang="ts">
 	import type { Break } from 'mdast';
 
-	let {}: Break = $props();
+	let props: Break = $props();
+
+	void props;
 </script>
 
 <br />

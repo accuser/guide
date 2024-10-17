@@ -1,67 +1,37 @@
-import Blockquote from '$lib/components/Blockquote.svelte';
-import Break from '$lib/components/Break.svelte';
-import Code from '$lib/components/Code.svelte';
-import ContainerDirective from '$lib/components/ContainerDirective.svelte';
-import Definition from '$lib/components/Definition.svelte';
-import Delete from '$lib/components/Delete.svelte';
-import Emphasis from '$lib/components/Emphasis.svelte';
-import FootnoteDefinition from '$lib/components/FootnoteDefinition.svelte';
-import FootnoteReference from '$lib/components/FootnoteReference.svelte';
-import Heading from '$lib/components/Heading.svelte';
-import Html from '$lib/components/Html.svelte';
-import Image from '$lib/components/Image.svelte';
-import ImageReference from '$lib/components/ImageReference.svelte';
-import InlineCode from '$lib/components/InlineCode.svelte';
-import LeafDirective from '$lib/components/LeafDirective.svelte';
-import Link from '$lib/components/Link.svelte';
-import LinkReference from '$lib/components/LinkReference.svelte';
-import List from '$lib/components/List.svelte';
-import ListItem from '$lib/components/ListItem.svelte';
-import Paragraph from '$lib/components/Paragraph.svelte';
-import Root from '$lib/components/Root.svelte';
-import Strong from '$lib/components/Strong.svelte';
-import Table from '$lib/components/Table.svelte';
-import TableCell from '$lib/components/TableCell.svelte';
-import TableRow from '$lib/components/TableRow.svelte';
-import Text from '$lib/components/Text.svelte';
-import TextDirective from '$lib/components/TextDirective.svelte';
-import ThematicBreak from '$lib/components/ThematicBreak.svelte';
-import Yaml from '$lib/components/Yaml.svelte';
+import Blockquote from '$lib/components/Mdast/Blockquote.svelte';
+import Break from '$lib/components/Mdast/Break.svelte';
+import Code from '$lib/components/Mdast/Code.svelte';
+import ContainerDirective from '$lib/components/Mdast/ContainerDirective.svelte';
+import Definition from '$lib/components/Mdast/Definition.svelte';
+import Delete from '$lib/components/Mdast/Delete.svelte';
+import Emphasis from '$lib/components/Mdast/Emphasis.svelte';
+import FootnoteDefinition from '$lib/components/Mdast/FootnoteDefinition.svelte';
+import FootnoteReference from '$lib/components/Mdast/FootnoteReference.svelte';
+import Heading from '$lib/components/Mdast/Heading.svelte';
+import Html from '$lib/components/Mdast/Html.svelte';
+import Image from '$lib/components/Mdast/Image.svelte';
+import ImageReference from '$lib/components/Mdast/ImageReference.svelte';
+import InlineCode from '$lib/components/Mdast/InlineCode.svelte';
+import InlineMath from '$lib/components/Mdast/InlineMath.svelte';
+import LeafDirective from '$lib/components/Mdast/LeafDirective.svelte';
+import Link from '$lib/components/Mdast/Link.svelte';
+import LinkReference from '$lib/components/Mdast/LinkReference.svelte';
+import List from '$lib/components/Mdast/List.svelte';
+import ListItem from '$lib/components/Mdast/ListItem.svelte';
+import Math from '$lib/components/Mdast/Math.svelte';
+import Paragraph from '$lib/components/Mdast/Paragraph.svelte';
+import Root from '$lib/components/Mdast/Root.svelte';
+import Strong from '$lib/components/Mdast/Strong.svelte';
+import Table from '$lib/components/Mdast/Table.svelte';
+import TableCell from '$lib/components/Mdast/TableCell.svelte';
+import TableRow from '$lib/components/Mdast/TableRow.svelte';
+import Text from '$lib/components/Mdast/Text.svelte';
+import TextDirective from '$lib/components/Mdast/TextDirective.svelte';
+import ThematicBreak from '$lib/components/Mdast/ThematicBreak.svelte';
+import Yaml from '$lib/components/Mdast/Yaml.svelte';
 import type { Components } from '$lib/types/components';
 
-interface ComponentMap {
-	blockquote: import('mdast').Blockquote;
-	break: import('mdast').Break;
-	code: import('mdast').Code;
-	containerDirective: import('mdast-util-directive').ContainerDirective;
-	definition: import('mdast').Definition;
-	delete: import('mdast').Delete;
-	emphasis: import('mdast').Emphasis;
-	footnoteDefinition: import('mdast').FootnoteDefinition;
-	footnoteReference: import('mdast').FootnoteReference;
-	heading: import('mdast').Heading;
-	html: import('mdast').Html;
-	image: import('mdast').Image;
-	imageReference: import('mdast').ImageReference;
-	inlineCode: import('mdast').InlineCode;
-	leafDirective: import('mdast-util-directive').LeafDirective;
-	link: import('mdast').Link;
-	linkReference: import('mdast').LinkReference;
-	list: import('mdast').List;
-	listItem: import('mdast').ListItem;
-	paragraph: import('mdast').Paragraph;
-	root: import('mdast').Root;
-	strong: import('mdast').Strong;
-	table: import('mdast').Table;
-	tableCell: import('mdast').TableCell;
-	tableRow: import('mdast').TableRow;
-	text: import('mdast').Text;
-	textDirective: import('mdast-util-directive').TextDirective;
-	thematicBreak: import('mdast').ThematicBreak;
-	yaml: import('mdast').Yaml;
-}
-
-const mdastComponents: Components<ComponentMap[keyof ComponentMap]> = {
+const mdastComponents: Components<import('mdast').Nodes> = {
 	blockquote: Blockquote,
 	break: Break,
 	code: Code,
@@ -76,11 +46,13 @@ const mdastComponents: Components<ComponentMap[keyof ComponentMap]> = {
 	image: Image,
 	imageReference: ImageReference,
 	inlineCode: InlineCode,
+	inlineMath: InlineMath,
 	leafDirective: LeafDirective,
 	link: Link,
 	linkReference: LinkReference,
 	list: List,
 	listItem: ListItem,
+	math: Math,
 	paragraph: Paragraph,
 	root: Root,
 	strong: Strong,

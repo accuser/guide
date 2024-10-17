@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Node from '$lib/components/Node.svelte';
+	import Node from '$lib/components/Mdast/Node.svelte';
 	import { getAstContext } from '$lib/context/ast-content';
 	import type { LeafDirective } from 'mdast-util-directive';
 	import { toString } from 'mdast-util-to-string';

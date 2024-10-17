@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	declare module 'mdast' {
 		interface TableCellData {
-			align?: AlignType | null;
+			align?: import('mdast').AlignType | null;
 		}
 	}
 </script>

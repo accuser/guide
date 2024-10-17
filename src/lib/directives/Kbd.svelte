@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Node from '$lib/components/Node.svelte';
+	import Node from '$lib/components/Mdast/Node.svelte';
 	import type { TextDirective } from 'mdast-util-directive';
 
 	let { children }: TextDirective = $props();
@@ -8,6 +8,3 @@
 <kbd
 	>{#each children as node}<Node {...node} />{/each}</kbd
 >
-
-<style lang="postcss">
-</style>

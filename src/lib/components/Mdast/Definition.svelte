@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { Definition } from 'mdast';
 
-	let {}: Definition = $props();
+	let props: Definition = $props();
+
+	void props;
 </script>

@@ -4,12 +4,9 @@
 	import { buildGetTitle } from '$lib/ast/build-get-title';
 	import { buildGetToc, type Depth } from '$lib/ast/build-get-toc';
 	import { setAstContext } from '$lib/context/ast-content';
-	import { components } from '$lib/defaults/components';
-	import { directives } from '$lib/defaults/directives';
-	import type { Root } from 'mdast';
-	import Node from './Node.svelte';
+	import Node from './Mdast/Node.svelte';
 
-	const { ast }: { ast: Root } = $props();
+	const { ast }: { ast: import('mdast').Root } = $props();
 
 	let getDefinition = $derived.by(() => buildGetDefinition(ast));
 	let getFrontmatter = $derived.by(() => buildGetFrontmatter(ast));
@@ -17,8 +14,6 @@
 	let getToc = $derived.by(() => buildGetToc(ast));
 
 	setAstContext({
-		components,
-		directives,
 		getDefinition: (identfier: string | null | undefined) => getDefinition(identfier),
 		getFrontmatter: () => getFrontmatter(),
 		getTitle: () => getTitle(),

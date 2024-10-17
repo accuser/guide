@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { Doctype } from 'hast';
 
-	let {}: Doctype = $props();
+	let props: Doctype = $props();
+
+	void props;
 </script>

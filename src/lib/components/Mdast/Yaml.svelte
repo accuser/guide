@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { Yaml } from 'mdast';
 
-	let {}: Yaml = $props();
+	let props: Yaml = $props();
+
+	void props;
 </script>
