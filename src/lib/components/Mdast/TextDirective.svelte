@@ -5,13 +5,7 @@
 
 	let { children, name, ...props }: TextDirective = $props();
 
-	let Directive = $derived.by(() => {
-		const key = name as keyof typeof textDirectives;
-
-		if (key in textDirectives) {
-			return textDirectives[key];
-		}
-	});
+	let Directive = $derived(textDirectives[name as keyof typeof textDirectives]);
 </script>
 
 {#if Directive}<Directive {children} {name} {...props} />{:else}<span class={name}

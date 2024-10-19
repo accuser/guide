@@ -1,7 +1,9 @@
+import Btn from '$lib/directives/Btn.svelte';
 import Kbd from '$lib/directives/Kbd.svelte';
 
 const textDirectives = {
-	kdb: Kbd
+	btn: Btn,
+	kbd: Kbd
 };
 
 export { textDirectives };
