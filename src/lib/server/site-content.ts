@@ -14,8 +14,6 @@ type Options = {
 
 export interface Content {
 	ast: Root;
-	basename: string;
-	dirname: string;
 	filename: string;
 	frontmatter: Record<string, unknown>;
 	title: string;
@@ -47,8 +45,6 @@ const buildContentMap: (options?: Options) => Promise<Map<string, Content>> = as
 
 		fileMap.set(slug, {
 			ast,
-			basename: path.basename(filename),
-			dirname: path.dirname(filename),
 			filename,
 			frontmatter,
 			title

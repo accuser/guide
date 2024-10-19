@@ -6,3 +6,8 @@ This section is dedicated to software engineering, the practice of designing, de
 
 :btn[Quickstart]{href=/tutorials/python-basics/hello-world arrow=right}
 :btn[Reference]{href=/reference arrow=right variant=outline}
+
+[External link](https://www.example.com)
+[Relative link](reference)
+[Absolute link](/tutorials/python-basics/hello-world)
+[Internal link](#section)

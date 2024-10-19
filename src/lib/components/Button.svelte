@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import clsx from 'clsx';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
-	import A from './A.svelte';
 	import ArrowIcon from './ArrowIcon.svelte';
 
 	const variantStyles = {
@@ -29,6 +29,20 @@
 		variant?: keyof typeof variantStyles;
 	} & (HTMLAnchorAttributes | (HTMLButtonAttributes & { href?: undefined })) = $props();
 
+	let href = $derived.by(() => {
+		const { href } = props;
+
+		if (href === undefined || href === null || base === '') {
+			// do nothing
+		} else if (href.startsWith('/')) {
+			return `${base}${href}`;
+		} else {
+			// do nothing
+		}
+
+		return href;
+	});
+
 	let klass = $derived.by(() =>
 		clsx(
 			'not-prose',
@@ -37,42 +51,24 @@
 			props.class
 		)
 	);
+
+	let tag = $derived.by(() => (href === null || href === undefined ? 'button' : 'a'));
 </script>
 
-{#if props.href === null || props.href === undefined}
-	<button {...props as HTMLButtonAttributes} class={klass}>
-		{#if arrow === 'left'}
-			<ArrowIcon
-				class={clsx(
-					'mt-0.5 h-5 w-5',
-					variant === 'text' ? 'relative top-px' : '',
-					'-ml-1 rotate-180'
-				)}
-			/>
-		{/if}
-		{@render children?.()}
-		{#if arrow === 'right'}
-			<ArrowIcon
-				class={clsx('mt-0.5 h-5 w-5', variant === 'text' ? 'relative top-px' : '', '-mr-1')}
-			/>
-		{/if}
-	</button>
-{:else}
-	<A {...props as HTMLAnchorAttributes} class={klass}>
-		{#if arrow === 'left'}
-			<ArrowIcon
-				class={clsx(
-					'mt-0.5 h-5 w-5',
-					variant === 'text' ? 'relative top-px' : '',
-					'-ml-1 rotate-180'
-				)}
-			/>
-		{/if}
-		{@render children?.()}
-		{#if arrow === 'right'}
-			<ArrowIcon
-				class={clsx('mt-0.5 h-5 w-5', variant === 'text' ? 'relative top-px' : '', '-mr-1')}
-			/>
-		{/if}</A
-	>
-{/if}
+<svelte:element this={tag} {...{ ...props, href }} class={klass}>
+	{#if arrow === 'left'}
+		<ArrowIcon
+			class={clsx(
+				'mt-0.5 h-5 w-5',
+				variant === 'text' ? 'relative top-px' : '',
+				'-ml-1 rotate-180'
+			)}
+		/>
+	{/if}
+	{@render children?.()}
+	{#if arrow === 'right'}
+		<ArrowIcon
+			class={clsx('mt-0.5 h-5 w-5', variant === 'text' ? 'relative top-px' : '', '-mr-1')}
+		/>
+	{/if}
+</svelte:element>

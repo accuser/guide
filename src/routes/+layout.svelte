@@ -1,5 +1,5 @@
 <script lang="ts">
-	import A from '$lib/components/A.svelte';
+	import { base } from '$app/paths';
 	import Logo from '$lib/components/Logo.svelte';
 	import '../app.css';
 
@@ -12,9 +12,9 @@
 			class="contents lg:pointer-events-auto lg:block lg:w-72 lg:overflow-y-auto lg:border-r lg:border-zinc-900/10 lg:px-6 lg:pb-8 lg:pt-4 xl:w-80 lg:dark:border-white/10"
 		>
 			<div class="hidden lg:flex">
-				<A href="/" aria-label="Home">
+				<a href="{base}/" aria-label="Home">
 					<Logo class="h-6" />
-				</A>
+				</a>
 			</div>
 			<!-- <Header />
 			<Navigation class="hidden lg:mt-10 lg:block" />  -->

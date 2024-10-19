@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { getAstContext } from '$lib/context/ast-content';
 	import type { LinkReference } from 'mdast';
-	import A from '../A.svelte';
+	import Anchor from '../Anchor.svelte';
 	import Node from './Node.svelte';
 
-	// TODO: implement `referenceType`?
 	let { children, identifier }: LinkReference = $props();
 
 	const { getDefinition } = getAstContext();
@@ -20,6 +19,6 @@
 	});
 </script>
 
-<A href={url} {title}
-	>{#each children as node}<Node {...node} />{/each}</A
+<Anchor href={url} {title}
+	>{#each children as node}<Node {...node} />{/each}</Anchor
 >

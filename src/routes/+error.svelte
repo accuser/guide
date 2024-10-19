@@ -1,5 +1,5 @@
 <script lang="ts">
-	import A from '$lib/components/A.svelte';
+	import Anchor from '$lib/components/Anchor.svelte';
 </script>
 
 <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
@@ -10,21 +10,11 @@
 			Sorry, we couldn&rsquo;t find the page you&rsquo;re looking for.
 		</p>
 		<div class="mt-10 flex items-center justify-center gap-x-6">
-			<A
+			<Anchor
 				href="/"
 				class="rounded-md bg-orange-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
-				>Go back home</A
+				>Go back home</Anchor
 			>
 		</div>
 	</div>
 </main>
-
-<style lang="postcss">
-	:global(html) {
-		@apply h-full;
-	}
-
-	:global(body) {
-		@apply h-full;
-	}
-</style>

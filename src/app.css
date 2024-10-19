@@ -7,10 +7,6 @@ body {
 	@apply bg-white dark:bg-slate-900;
 }
 
-body {
-	@apply mx-4;
-}
-
 kbd {
 	@apply font-mono text-sm px-1.5 py-1 bg-slate-100 rounded shadow border border-slate-300 uppercase;
 	@apply dark:bg-slate-800 dark:border-slate-700;

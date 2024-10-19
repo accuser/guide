@@ -7,9 +7,12 @@ import path from 'node:path';
 const config = {
 	kit: {
 		adapter: adapter(),
-
 		paths: {
-			base: process.env.BASE_PATH
+			base:
+				'BASE_PATH' in process.env && typeof process.env.BASE_PATH === 'string'
+					? process.env.BASE_PATH
+					: '',
+			relative: false
 		},
 		prerender: {
 			handleHttpError: (error) => {
