@@ -1,13 +1,14 @@
-import { isHeading } from '$lib/type-guards/mdast';
 import { slug } from 'github-slugger';
 import type { Heading, List, Root } from 'mdast';
 import { toString } from 'mdast-util-to-string';
-import { collect } from './collect.js';
+import { visit } from 'unist-util-visit';
 
 export type Depth = Heading['depth'];
 
-const buildGetToc = (root: Root) => {
-	const headings = collect(root, isHeading);
+const buildGetToc = (ast: Root) => {
+	const headings: Heading[] = [];
+
+	visit(ast, 'heading', (node) => headings.push(node));
 
 	return (minDepth: Depth = 1, maxDepth: Depth = 6, ordered?: true): List =>
 		headings

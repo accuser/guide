@@ -1,12 +1,12 @@
-import { isDefinition } from '$lib/type-guards/mdast.js';
-import type { Root } from 'mdast';
-import { collect } from './collect';
+import type { Definition, Root } from 'mdast';
+import { visit } from 'unist-util-visit';
 
 const buildGetDefinition = (ast: Root) => {
-	const definitions = collect(ast, isDefinition).reduce(
-		(acc, definition) => Object.assign(acc, { [definition.identifier]: definition }),
-		{} as Record<string, import('mdast').Definition>
-	);
+	const definitions: Record<string, Definition> = {};
+
+	visit(ast, 'definition', (node) => {
+		definitions[node.identifier] = node;
+	});
 
 	return (identifier: string | null | undefined) =>
 		identifier !== null && identifier !== undefined ? definitions[identifier] : undefined;
