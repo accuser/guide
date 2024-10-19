@@ -1,9 +1,14 @@
 <script lang="ts">
 	import { hastComponents } from '$lib/defaults/hast-components.js';
-	import { isLiteral, isParent } from '$lib/type-guards/unist.js';
 	import Node from './Node.svelte';
 
 	let node: import('mdast').Node = $props();
+
+	const isLiteral = (node: import('mdast').Node): node is import('mdast').Literal =>
+		'value' in node && typeof node.value === 'string';
+
+	const isParent = (node: import('mdast').Node): node is import('mdast').Parent =>
+		'children' in node && Array.isArray(node.children);
 
 	let Component = $derived(
 		hastComponents[node.type as keyof typeof hastComponents] as import('svelte').Component<
