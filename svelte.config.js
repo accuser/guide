@@ -15,9 +15,11 @@ const config = {
 			relative: false
 		},
 		prerender: {
-			handleHttpError: (error) => {
-				console.error(error);
-				return { html: '<h1>Something went wrong</h1>' };
+			handleHttpError: (params) => {
+				console.error(params.message);
+			},
+			handleMissingId: (params) => {
+				console.error(params.message);
 			},
 			entries: fg
 				.globSync(['content', '**', '*.md'].join(path.sep), { cwd: process.cwd() })
