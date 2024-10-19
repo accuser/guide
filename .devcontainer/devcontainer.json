@@ -11,7 +11,8 @@
 				"dbaeumer.vscode-eslint",
 				"esbenp.prettier-vscode",
 				"svelte.svelte-vscode",
-				"vitest.explorer"
+				"vitest.explorer",
+				"CucumberOpen.cucumber-official"
 			]
 		}
 	}

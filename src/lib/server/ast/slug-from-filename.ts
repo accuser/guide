@@ -1,4 +1,4 @@
 const slugFromFilename: (filename: { toString: () => string }) => string = (filename) =>
-	filename.toString().replace(/(?:index)?\.md$/, '');
+	filename.toString().replace(/(?:\/?index)?\.md$/, '');
 
 export { slugFromFilename };

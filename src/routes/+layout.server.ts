@@ -5,5 +5,9 @@ export const prerender = true;
 export const trailingSlash = 'always';
 
 export const load = (async () => {
-	return { site: await buildContentMap() };
+	const site = await buildContentMap();
+
+	console.log('site', site);
+
+	return { site };
 }) satisfies LayoutServerLoad;

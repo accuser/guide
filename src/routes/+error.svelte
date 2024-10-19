@@ -1,3 +1,7 @@
+<script lang="ts">
+	import A from '$lib/components/A.svelte';
+</script>
+
 <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
 	<div class="text-center">
 		<p class="text-base font-semibold text-orange-600">404</p>
@@ -6,10 +10,10 @@
 			Sorry, we couldn&rsquo;t find the page you&rsquo;re looking for.
 		</p>
 		<div class="mt-10 flex items-center justify-center gap-x-6">
-			<a
+			<A
 				href="/"
 				class="rounded-md bg-orange-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
-				>Go back home</a
+				>Go back home</A
 			>
 		</div>
 	</div>

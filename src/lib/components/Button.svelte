@@ -2,6 +2,7 @@
 	import clsx from 'clsx';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
+	import A from './A.svelte';
 	import ArrowIcon from './ArrowIcon.svelte';
 
 	const variantStyles = {
@@ -19,7 +20,6 @@
 	let {
 		arrow,
 		children,
-		class: _class,
 		variant = 'primary',
 		...props
 	}: {
@@ -29,31 +29,50 @@
 		variant?: keyof typeof variantStyles;
 	} & (HTMLAnchorAttributes | (HTMLButtonAttributes & { href?: undefined })) = $props();
 
-	let tag = $derived(props.href ? 'a' : 'button');
 	let klass = $derived.by(() =>
 		clsx(
 			'not-prose',
 			'inline-flex gap-0.5 justify-center overflow-hidden text-sm font-medium transition',
 			variantStyles[variant],
-			_class
+			props.class
 		)
 	);
 </script>
 
-<svelte:element this={tag} {...props} class={klass}>
-	{#if arrow === 'left'}
-		<ArrowIcon
-			class={clsx(
-				'mt-0.5 h-5 w-5',
-				variant === 'text' ? 'relative top-px' : '',
-				'-ml-1 rotate-180'
-			)}
-		/>
-	{/if}
-	{@render children?.()}
-	{#if arrow === 'right'}
-		<ArrowIcon
-			class={clsx('mt-0.5 h-5 w-5', variant === 'text' ? 'relative top-px' : '', '-mr-1')}
-		/>
-	{/if}
-</svelte:element>
+{#if props.href === null || props.href === undefined}
+	<button {...props as HTMLButtonAttributes} class={klass}>
+		{#if arrow === 'left'}
+			<ArrowIcon
+				class={clsx(
+					'mt-0.5 h-5 w-5',
+					variant === 'text' ? 'relative top-px' : '',
+					'-ml-1 rotate-180'
+				)}
+			/>
+		{/if}
+		{@render children?.()}
+		{#if arrow === 'right'}
+			<ArrowIcon
+				class={clsx('mt-0.5 h-5 w-5', variant === 'text' ? 'relative top-px' : '', '-mr-1')}
+			/>
+		{/if}
+	</button>
+{:else}
+	<A {...props as HTMLAnchorAttributes} class={klass}>
+		{#if arrow === 'left'}
+			<ArrowIcon
+				class={clsx(
+					'mt-0.5 h-5 w-5',
+					variant === 'text' ? 'relative top-px' : '',
+					'-ml-1 rotate-180'
+				)}
+			/>
+		{/if}
+		{@render children?.()}
+		{#if arrow === 'right'}
+			<ArrowIcon
+				class={clsx('mt-0.5 h-5 w-5', variant === 'text' ? 'relative top-px' : '', '-mr-1')}
+			/>
+		{/if}</A
+	>
+{/if}
