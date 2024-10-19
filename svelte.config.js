@@ -16,7 +16,7 @@ const config = {
 		prerender: {
 			entries: fg
 				.globSync(['content', '**', '*.md'].join(path.sep), { cwd: process.cwd() })
-				.map((entry) => '/' + entry.replace(/(^content)|(index\.md$)|(\.md$)/g, ''))
+				.map((entry) => entry.replace(/(^content)|(index\.md$)|(\.md$)/g, ''))
 		}
 	},
 	preprocess: vitePreprocess()
