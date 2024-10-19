@@ -1,16 +1,21 @@
 <script lang="ts">
-	import { astFromCode } from '$lib/ast/ast-from-code';
-	import Hast from '$lib/components/Hast.svelte';
 	import type { Code } from 'mdast';
 	import CopyButton from '../CopyButton.svelte';
+	import Node from '../Hast/Node.svelte';
 
-	let { lang, meta, value }: Code = $props();
+	let { lang, meta, value, data }: Code = $props();
+
+	let ast = $derived(
+		data?.ast
+			? data.ast
+			: {
+					type: 'text' as const,
+					value
+				}
+	);
 </script>
 
-<pre><code {lang} data-meta={meta}
-		>{#await astFromCode(value, lang)}{value}{:then ast}<Hast {ast} />{:catch}{value}{/await}</code
-	><CopyButton {value} />
-</pre>
+<pre><code {lang} data-meta={meta}><Node {...ast} /></code><CopyButton {value} /></pre>
 
 <style lang="postcss">
 	pre {

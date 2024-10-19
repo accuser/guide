@@ -5,13 +5,7 @@
 
 	let { children, name, ...props }: ContainerDirective = $props();
 
-	let Directive = $derived.by(() => {
-		const key = name as keyof typeof containerDirectives;
-
-		if (key in containerDirectives) {
-			return containerDirectives[key];
-		}
-	});
+	let Directive = $derived(containerDirectives[name as keyof typeof containerDirectives]);
 </script>
 
 {#if Directive}

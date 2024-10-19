@@ -5,13 +5,7 @@
 
 	let { children, name, ...props }: LeafDirective = $props();
 
-	let Directive = $derived.by(() => {
-		const key = name as keyof typeof leafDirectives;
-
-		if (key in leafDirectives) {
-			return leafDirectives[key];
-		}
-	});
+	let Directive = $derived(leafDirectives[name as keyof typeof leafDirectives]);
 </script>
 
 {#if Directive}<Directive {children} {name} {...props} />{:else}

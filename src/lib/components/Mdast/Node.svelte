@@ -1,7 +1,12 @@
 <script lang="ts">
 	import { mdastComponents } from '$lib/defaults/mdast-components.js';
-	import { isLiteral, isParent } from '$lib/type-guards/mdast.js';
 	import Node from './Node.svelte';
+
+	const isLiteral = (node: import('mdast').Node): node is import('mdast').Literal =>
+		'value' in node && typeof node.value === 'string';
+
+	const isParent = (node: import('mdast').Node): node is import('mdast').Parent =>
+		'children' in node && Array.isArray(node.children);
 
 	let node: import('mdast').Node = $props();
 

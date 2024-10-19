@@ -8,6 +8,6 @@
 	let tag = $derived.by(() => `h${depth}`);
 </script>
 
-<svelte:element this={tag} {id}
-	>{#each children as node}<Node {...node} />{/each}</svelte:element
->
+{#if depth !== 1}<svelte:element this={tag} {id}
+		>{#each children as node}<Node {...node} />{/each}</svelte:element
+	>{/if}
