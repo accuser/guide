@@ -1,22 +1,7 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { Glob } from 'glob';
+import fg from 'fast-glob';
 import path from 'node:path';
-
-const entries = () => {
-	const entries = [];
-	const pattern = ['docs', '**', '*.md'].join(path.sep);
-
-	const glob = new Glob(pattern, { cwd: process.cwd() });
-
-	for (const entry of glob) {
-		const slug = entry.replace(/(^docs)|(index\.md$)|(\.md$)/g, '');
-
-		entries.push(slug);
-	}
-
-	return entries;
-};
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -29,7 +14,9 @@ const config = {
 			base: process.env.BASE_PATH
 		},
 		prerender: {
-			entries: entries()
+			entries: fg
+				.globSync(['content', '**', '*.md'].join(path.sep), { cwd: process.cwd() })
+				.map((entry) => '/' + entry.replace(/(^content)|(index\.md$)|(\.md$)/g, ''))
 		}
 	},
 	preprocess: vitePreprocess()
