@@ -6,9 +6,7 @@ import path from 'node:path';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter({
-			fallback: '404.html'
-		}),
+		adapter: adapter(),
 
 		paths: {
 			base: process.env.BASE_PATH
@@ -16,11 +14,7 @@ const config = {
 		prerender: {
 			entries: fg
 				.globSync(['content', '**', '*.md'].join(path.sep), { cwd: process.cwd() })
-				.map((entry) =>
-					[process.env.BASE_PATH, entry.replace(/(^content)|(index\.md$)|(\.md$)/g, '')].join(
-						path.sep
-					)
-				)
+				.map((entry) => entry.replace(/(^content)|(index\.md$)|(\.md$)/g, ''))
 		}
 	},
 	preprocess: vitePreprocess()
