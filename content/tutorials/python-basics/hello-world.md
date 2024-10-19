@@ -3,6 +3,8 @@ title: 'Creating your first Python program: Hello, World!'
 lede: 'Learn how to write and run a simple Python program that displays a message on your screen.'
 ---
 
+# Learn Python: Hello, World!
+
 Welcome to your first step in learning Python! In this tutorial, we'll guide you through creating a simple program that displays the message "Hello, World!" on your screen. This is a common starting point for learning any programming language.
 
 ## What you'll learn
