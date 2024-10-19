@@ -1,10 +1,12 @@
 <script lang="ts">
-	import Mdast from '$lib/components/Mdast.svelte';
+	import Markdown from '$lib/components/Markdown.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 
-	let { ast } = $derived(data);
+	let {
+		page: { ast }
+	} = $derived(data);
 </script>
 
-<Mdast {ast} />
+<Markdown {ast} />
